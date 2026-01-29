@@ -1,0 +1,163 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage[margin=0.7in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage[none]{hyphenat}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{microtype}
+
+% Theme color (Gold/Tan)
+\definecolor{theme_gold}{HTML}{b3a482}
+
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\pagenumbering{gobble}
+
+% Slightly tighter, cleaner spacing
+\setlength{\parskip}{2pt}
+
+% Bullet + list spacing tuned for resume
+\setlist[itemize]{
+  leftmargin=*,
+  noitemsep,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+\renewcommand\labelitemi{\small\textbullet}
+
+% Section styling (cleaner + slightly tighter)
+\titleformat{\section}{\large\bfseries\color{theme_gold}}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{6pt}
+
+% Helper: consistent entry header
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1} — #2 & \textit{#3} \\
+    \textit{#4} & \\
+  \end{tabularx}
+}
+
+% Helper: project header
+\newcommand{\project}[2]{%
+  \textbf{#1}\\
+  \textit{Tools: #2}
+}
+
+\begin{document}
+
+% --- HEADER (clean, aligned) ---
+\begin{center}
+  {\Huge \textbf{Hadi Fathipour}}\\[-2pt]
+  {\large Backend \& AI Engineer}\\[6pt]
+
+  \small
+  \begin{tabularx}{0.92\textwidth}{@{}X X@{}}
+    \faEnvelope\ \href{mailto:hadifathi13781378@gmail.com}{hadifathi13781378@gmail.com} &
+    \faPhone\ +98 921 8284 877 \\
+    \faLinkedin\ \href{https://linkedin.com/in/hadi-fathipour-8b39071a2}{linkedin.com/in/hadi-fathipour-8b39071a2} &
+    \faGithub\ \href{https://github.com/hadif1999}{github.com/hadif1999}
+  \end{tabularx}
+\end{center}
+
+% --- SUMMARY ---
+\section{Professional Summary}
+Backend \& AI engineer with experience building high-performance, asynchronous backend systems and real-time APIs for production environments.
+Strong background in machine learning, data analysis, and autonomous systems, with a focus on scalable architecture, intelligent data processing, and automation.
+Proven ability to translate complex domain and business requirements into reliable backend services operating in real-world conditions.
+
+% --- SKILLS (more readable) ---
+\section{Technical Expertise}
+\begin{itemize}
+  \item \textbf{Programming:} Python (NumPy, Pandas), SQL, C++ (Arduino), MATLAB, HTML/CSS
+  \item \textbf{Backend \& DevOps:} FastAPI, Docker, Docker-py, Celery, Linux, Git, REST, WebSockets, gRPC
+  \item \textbf{ML \& AI:} TensorFlow, Keras, scikit-learn, Transformers, BERT, XGBoost, SVM, RNN, ARIMA, time-series forecasting
+  \item \textbf{Data \& DB:} MySQL, SQLAlchemy, SQLModel, market data analysis
+\end{itemize}
+
+% --- EXPERIENCE (consistent, polished headers) ---
+\section{Experience}
+
+\entry{Backend \& AI Developer}{Sanam.pro (RobTK)}{Moscow, Russia}{2025 -- 2026}
+\begin{itemize}
+  \item Designed and implemented a high-performance, fully asynchronous backend for real-time drone command and telemetry management using FastAPI.
+  \item Built secure, role-based authentication for operators and administrators to control access to drone APIs and monitoring services.
+  \item Developed AI-driven geospatial monitoring to prevent drones from entering restricted zones using graph-based path planning.
+  \item Implemented path-planning algorithms with NetworkX and optimized geo-computation pipelines using Shapely, GeoPandas, GeoPy, and Cython.
+  \item Integrated MAVSDK and PyMAVLink for reliable real-time command and data exchange.
+\end{itemize}
+
+\vspace{6pt}
+
+\entry{Freelance ML \& Backend Engineer}{Self-employed}{Remote}{2021 -- Present}
+\begin{itemize}
+  \item Delivered end-to-end ML and backend solutions across NLP, time-series analysis, business intelligence, and computer vision.
+  \item Designed and deployed production-ready APIs and data pipelines to automate analytics and decision-making workflows for multiple clients.
+  \item Collaborated with global clients via LinkedIn, Upwork, and Freelancer to translate requirements into scalable technical solutions.
+\end{itemize}
+
+\vspace{6pt}
+
+\entry{Algorithmic Trader \& Systems Developer}{Self-employed}{Remote}{2022 -- Present}
+\begin{itemize}
+  \item Designed and deployed algorithmic trading systems and data analysis pipelines for cryptocurrency markets.
+  \item Built containerized execution services using Docker for reliable unattended operation on servers.
+  \item Applied forecasting techniques (Transformers, RNNs, ARIMA) to model market behavior and evaluate strategy performance.
+\end{itemize}
+
+% --- PROJECTS (cleaner spacing + consistent headers) ---
+\section{Key Projects}
+
+\project{Urban Drone Backend \& AI Control System}{FastAPI, AsyncIO, NetworkX, GeoPandas, Shapely, GeoPy, MAVSDK, PyMAVLink}
+\begin{itemize}
+  \item Developed AI-driven backend systems to customize urban drone behavior and avoid restricted zones using A* path planning.
+  \item Built fully asynchronous services and real-time dashboard panels to manage fleets and monitor live telemetry.
+  \item Implemented geospatial processing for urban constraints and navigation enforcement.
+\end{itemize}
+
+\vspace{6pt}
+
+\project{IFUND: Prop-Trading Platform Backend \& Infrastructure}{FastAPI, Docker, Docker-py, Python}
+\begin{itemize}
+  \item Built an API to create, configure, and manage customized MetaTrader 5 Docker containers for prop-trading challenges.
+  \item Implemented container lifecycle operations (provisioning, editing, isolation, removal) via REST endpoints.
+  \item Developed a standalone MT5 Docker image to support large-scale deployment without local installations.
+\end{itemize}
+\textit{Platform:} \href{https://panel.ifund.trade/login}{panel.ifund.trade} \quad
+\textit{Docker Image:} \href{https://hub.docker.com/r/hadi1999/meta5_custom_minimal}{Docker Hub}
+
+\vspace{6pt}
+
+\project{TONPAY: Telegram Crypto Wallet (TON Blockchain)}{SQLModel, SQLAlchemy, AsyncIO, python-telegram-bot}
+\begin{itemize}
+  \item Designed a fully asynchronous cryptocurrency wallet as a Telegram bot for the TON blockchain.
+  \item Built scalable database models supporting multiple wallets per user with isolation and transfer flows.
+\end{itemize}
+\textit{Repository:} \href{https://github.com/hadif1999/tonpay}{github.com/hadif1999/tonpay}
+
+\vspace{6pt}
+
+\project{Pycoin: Algorithmic Trading Python Framework}{Python, Binance API, BingX, KuCoin}
+\begin{itemize}
+  \item Developed an open-source framework for historical market data retrieval and technical analysis across exchanges.
+  \item Implemented tools for trend detection, high-low identification, probabilistic analysis, and strategy development.
+\end{itemize}
+\textit{Repository:} \href{https://github.com/hadif1999/pycoin}{github.com/hadif1999/pycoin}
+
+% --- EDUCATION (aligned, clean) ---
+\section{Education}
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+  \textbf{KNTU University of Technology} — Bachelor of Engineering (GPA: 3.81) & 2017 -- 2022 \\
+  \textbf{KNTU University of Technology} — M.Sc. Computer Engineering (Artificial Intelligence) & 2026 -- Present \\
+\end{tabularx}
+
+% --- HOBBIES (optional) ---
+\section{Hobbies}
+Mountain climbing, gym, swimming, reading, and watching movies.
+
+\end{document}
